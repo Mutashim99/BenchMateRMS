@@ -1,10 +1,10 @@
 import { NextFunction, Request, Response } from "express";
 import prisma from "../libs/prisma.js";
 import bcrypt from "bcrypt";
-import { bodyForEmailVerification, sendMail } from "../utils/email.js";
+import { bodyForEmailVerification } from "../utils/email.js";
 import { emailQueue } from "../queues/email.queues.js";
 import { generateToken } from "../utils/jwt.js";
-import { promises } from "dns";
+
 
 export const signUp = async (
   req: Request<{}, {}, RegisterUserDTO>, // first one is for req params,second for response body and third is for request body and fourth is for query params
